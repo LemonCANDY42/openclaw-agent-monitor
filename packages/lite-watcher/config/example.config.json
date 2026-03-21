@@ -1,0 +1,25 @@
+{
+  "paths": {
+    "openclawConfig": "~/.openclaw/openclaw.json",
+    "logDir": "/tmp/openclaw",
+    "stateFile": "ops/openclaw-watcher-v1/state/watcher-state.json",
+    "reportFile": "ops/openclaw-watcher-v1/state/last-report.json"
+  },
+  "channels": {
+    "priority": ["telegram", "feishu"]
+  },
+  "timers": {
+    "observeWindowMs": 180000,
+    "successConfirmWindowMs": 1800000,
+    "repeatErrorWindowMs": 1800000,
+    "selfHealCooldownMs": 900000,
+    "agentEscalationCooldownMs": 3600000,
+    "restartQuietWindowMs": 120000,
+    "drainRaceHoldMs": 600000
+  },
+  "behavior": {
+    "executeSelfHeal": false,
+    "allowConfigWrites": false,
+    "allowAgentEscalation": false
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>ai.openclaw.lite-watcher</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/zsh</string>
+      <string>/Users/kennymccormick/github/openclaw-agent-monitor/scripts/run-lite-watcher.sh</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>600</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/kennymccormick/.openclaw/logs/openclaw-lite-watcher.launchd.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/kennymccormick/.openclaw/logs/openclaw-lite-watcher.launchd.err.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/kennymccormick/github/openclaw-agent-monitor</string>
+  </dict>
+</plist>

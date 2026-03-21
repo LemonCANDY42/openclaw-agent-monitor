@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-watcher-v1",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Precision-first, ultra-light deterministic watcher prototype for OpenClaw",
+  "scripts": {
+    "check": "node src/watcher.mjs check"
+  }
+}

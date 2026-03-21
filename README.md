@@ -6,6 +6,10 @@ Local-first monitoring and operational guardrails for OpenClaw.
 
 - `packages/lite-watcher` — precision-first, ultra-light deterministic watcher for channel/config/runtime health
 
+## Agent skill
+
+- `skills/lite-watcher-deploy` — agent-facing installation, deployment, verification, and safety guidance for the watcher and its interaction boundary with `auto-resume-lite`
+
 ## Current deployment target on this machine
 
 The watcher is deployed from this repo path and runs locally via launchd.

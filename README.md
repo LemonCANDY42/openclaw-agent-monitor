@@ -9,12 +9,15 @@ Local-first monitoring and operational guardrails for OpenClaw.
 
 ## Agent skills
 
+- `skills/monitor-suite` — top-level routing skill for checking, operating, and extending the monitor framework
 - `skills/lite-watcher-deploy` — agent-facing installation, deployment, verification, and safety guidance for the watcher and its interaction boundary with `auto-resume-lite`
 - `skills/gateway-watchdog-deploy` — agent-facing deployment, suppression, verification, and uninstall guidance for the gateway companion watchdog
 
 ## Operator quickstart
 
-- `docs/OPERATOR-QUICKSTART.md` — shortest safe path for checking deployment state, reading watcher output, and reloading only the watcher LaunchAgent if needed
+- `docs/OPERATOR-QUICKSTART.md` — shortest safe path for checking deployment state and runtime health across the current monitor suite
+- `docs/MONITOR-SUITE-ARCHITECTURE.md` — framework structure and separation model
+- `docs/KNOWN-ISSUES-BY-VERSION.md` — version-sensitive operational quirks and revalidation notes
 
 ## Current deployment target on this machine
 

@@ -23,10 +23,17 @@ Use this when you want the fastest safe check of the deployed OpenClaw monitor s
 Run:
 
 ```bash
-~/github/openclaw-agent-monitor/scripts/check-lite-watcher-health.sh
+~/github/openclaw-agent-monitor/scripts/check-monitor-suite-health.sh
 ```
 
-What you want to see:
+For package-specific checks, use:
+
+```bash
+~/github/openclaw-agent-monitor/scripts/check-lite-watcher-health.sh
+~/github/openclaw-agent-monitor/scripts/check-gateway-watchdog-health.sh
+```
+
+For the lite watcher, what you want to see:
 
 - `launchAgent.plistExists = true`
 - `launchAgent.loaded = true`
@@ -36,6 +43,12 @@ What you want to see:
 - `autoResumeLite.enabled = false` (current safe default)
 - `telegramDenied = true`
 - `feishuDenied = true`
+
+For the gateway watchdog, what you want to see:
+
+- classification is normally `healthy` or intentionally `suppressed`
+- no rapid repeated recoveries
+- retry budget is mostly unused on a healthy machine
 
 ## Read the latest watcher result
 
@@ -93,6 +106,12 @@ Then re-run the 30-second health check.
 - Treat it as a **diagnostic mismatch**, not a confirmed outage, unless stronger evidence appears.
 - Do not restart OpenClaw or rewrite config just because this signal exists.
 - The watcher is meant to be deterministic and read-only by default.
+
+## Monitor framework notes
+
+- treat this repo as the operator surface for multiple watchdogs, not one giant watcher runtime
+- use the suite health script first, then route to a package-specific script or skill
+- after OpenClaw upgrades, re-check `docs/KNOWN-ISSUES-BY-VERSION.md` before trusting version-sensitive workarounds
 
 ## Current safe posture for `auto-resume-lite`
 

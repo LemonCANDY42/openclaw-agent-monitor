@@ -29,6 +29,10 @@ Each package should do one thing well.
 
 Current packages:
 
+- `packages/shared`
+  - shared low-level helpers
+  - file/log rotation contract
+  - small utilities meant to reduce duplicated operational logic
 - `packages/lite-watcher`
   - precision-first
   - read-only by default
@@ -94,6 +98,7 @@ Suggested shape for each watchdog:
 
 - main log: `~/.openclaw/logs/<name>.log`
 - launchd stdout/stderr files when applicable
+- if retention is needed, prefer a shared suite-level rotation helper over ad hoc per-script logic
 
 ### Suppression
 
@@ -147,6 +152,6 @@ OpenClaw should **not** blindly restart or broaden recovery logic just because a
 
 Next natural additions:
 
-- `packages/shared/` for common helpers
+- more shared helpers only when they clearly remove duplication without adding orchestration complexity
 - version-aware operational docs refinement
 - a stronger unified operator surface if the current scripts stay clean and low-risk

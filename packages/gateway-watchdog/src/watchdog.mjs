@@ -4,6 +4,7 @@ import os from 'os';
 import path from 'path';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
+import { rotateFileIfNeeded } from '../../shared/src/rotation.mjs';
 
 const execFileAsync = promisify(execFile);
 
@@ -59,22 +60,6 @@ function readJson(file, fallback) {
 
 function writeJson(file, value) {
   fs.writeFileSync(file, JSON.stringify(value, null, 2) + '\n');
-}
-
-function rotateFileIfNeeded(file, maxBytes = 512 * 1024, keep = 3) {
-  try {
-    if (!fs.existsSync(file)) return;
-    const size = fs.statSync(file).size;
-    if (size < maxBytes) return;
-    for (let i = keep; i >= 2; i -= 1) {
-      const prev = `${file}.${i - 1}`;
-      const next = `${file}.${i}`;
-      if (fs.existsSync(prev)) fs.renameSync(prev, next);
-    }
-    fs.renameSync(file, `${file}.1`);
-  } catch {
-    // Keep rotation best-effort; never fail the watchdog because of log housekeeping.
-  }
 }
 
 function appendEvent(type, detail = {}) {

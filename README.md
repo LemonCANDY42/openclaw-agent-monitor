@@ -4,6 +4,7 @@ Local-first monitoring and operational guardrails for OpenClaw.
 
 ## Packages
 
+- `packages/shared` — shared helpers and low-level contracts for the monitor suite
 - `packages/lite-watcher` — precision-first, ultra-light deterministic watcher for channel/config/runtime health
 - `packages/gateway-watchdog` — conservative companion watchdog for the narrow gateway fake-alive failure mode
 
